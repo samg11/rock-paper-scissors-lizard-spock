@@ -2,7 +2,8 @@ interface winnerResults {
     userChoice: string,
     computerChoice: string,
     winner: string,
-    loser: string
+    loser: string,
+    tie: boolean
 }
 
 const icons: any = document.querySelectorAll(".icon");
@@ -17,11 +18,14 @@ const iconDict: any = {rock,paper,scissors,lizard,spock}
 let rand: number;
 let winner: string | null;
 let loser: string;
+let tie: boolean;
+let winnerInfo: string;
 let computerChoice: string;
 let results: winnerResults;
 
 const getWinner = (userChoice: string, computerChoice: string): winnerResults => {
     winner = null;
+    tie = false;
 
     console.log(userChoice + computerChoice);
 
@@ -94,9 +98,12 @@ const getWinner = (userChoice: string, computerChoice: string): winnerResults =>
 
     if      (winner == "user")     loser = "computer";
     else if (winner == "computer") loser = "user";
-    else                           loser = "tie";
+    else {
+        loser = "tie";
+        tie = true;
+    }
 
-    return {userChoice, computerChoice, winner, loser}
+    return {userChoice, computerChoice, winner, loser, tie}
 }
 
 const chooseComputerMove = (): string => {
@@ -124,7 +131,11 @@ const chooseComputerMove = (): string => {
 const handleChoice = (id: string) => {
     computerChoice = chooseComputerMove();
     results = getWinner(id, computerChoice);
-    console.log(results.winner);
+    console.log(results);
+
+    if (results.tie) {
+        winnerInfo = "It was a tie!"
+    }
 
     computerChoiceDoc.innerText = results.computerChoice;
     winnerDoc.innerText = results.winner;

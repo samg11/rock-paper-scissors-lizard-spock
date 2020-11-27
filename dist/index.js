@@ -3,4 +3,4 @@ if(winner=="user")
 loser="computer";else if(winner=="computer")
 loser="user";else
 loser="tie";return{userChoice,computerChoice,winner,loser};};const chooseComputerMove=()=>{rand=Math.floor(Math.random()*5);switch(rand){case 0:return"rock";case 1:return"paper";case 2:return"scissors";case 3:return"lizard";case 4:return"spock";}
-return"error";};const handleChoice=(id)=>{computerChoice=chooseComputerMove();results=getWinner(id,computerChoice);console.log(results.winner);computerChoiceDoc.innerText=results.computerChoice;winnerDoc.innerText=results.winner;};for(let icon in icons){icons[icon].addEventListener("click",(e)=>{handleChoice(e.path[1].id);},false);}
+return"error";};const handleChoice=(id)=>{computerChoice=chooseComputerMove();results=getWinner(id,computerChoice);console.log(results);computerChoiceDoc.innerText=results.computerChoice;winnerDoc.innerText=results.winner;};for(let icon in icons){icons[icon].addEventListener("click",(e)=>{handleChoice(e.path[1].id);},false);}
