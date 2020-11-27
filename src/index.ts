@@ -17,7 +17,7 @@ const spock: HTMLElement | null = document.getElementById('spock')!;
 const computerChoiceDoc: HTMLElement | null = document.getElementById('computerChoice')!;
 const userChoiceDoc: HTMLElement | null = document.getElementById('userChoice')!;
 const winnerDoc: HTMLElement | null = document.getElementById('winner')!;
-const iconDict: any = {rock,paper,scissors,lizard,spock}
+const iconDict: HTMLElement[] | null[] = [rock,paper,scissors,lizard,spock]
 let rand: number;
 let winner: string;
 let loser: string;
@@ -50,7 +50,8 @@ const getWinner = (userChoice: string, computerChoice: string): winnerResults =>
             winner = "tie";
             break;
         case "spockspock":
-            winner = "tie";break;
+            winner = "tie";
+            break;
 
         // user wins
         case "rocklizard":
@@ -72,10 +73,13 @@ const getWinner = (userChoice: string, computerChoice: string): winnerResults =>
         case "paperspock":
             winner = "user";break;
         case "paperrock":
-            winner = "user";break;
+            winner = "user";
+            break;
         default:
             winner = "computer";
     }
+
+    console.log(winner);
 
     if (winner == "user") {
         loser = "computer";
@@ -85,7 +89,7 @@ const getWinner = (userChoice: string, computerChoice: string): winnerResults =>
         loser = "user";
         winnerMove = computerChoice;
         loserMove = userChoice;
-    } else {
+    } else if (winner == "tie") {
         loser = "tie";
         tie = true;
     }
@@ -130,8 +134,11 @@ const handleChoice = (id: string) => {
     winnerDoc.innerText = winnerInfo;
 }
 
-for (let icon in icons) {
+for (let icon in iconDict) {
+    console.log(icon);
+    console.log(icons[icon]);
     icons[icon].addEventListener("click", (e: any) => {
         handleChoice(e.path[1].id);
+        console.log(e.path);
     },false);
 }
