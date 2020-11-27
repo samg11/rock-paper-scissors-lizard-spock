@@ -79,8 +79,8 @@ const getWinner = (userChoice: string, computerChoice: string): winnerResults =>
         loserMove = computerChoice;
     } else if (winner == "computer") {
         loser = "user";
-        winnerMove = userChoice;
-        loserMove = computerChoice;
+        winnerMove = computerChoice;
+        loserMove = userChoice;
     } else {
         loser = "tie";
         tie = true;
