@@ -3,6 +3,9 @@ interface winnerResults {
     computerChoice: string;
     winner: string;
     loser: string;
+    tie: boolean;
+    winnerMove: string | null;
+    loserMove: string | null;
 }
 declare const icons: any;
 declare const rock: HTMLElement | null;
@@ -16,6 +19,11 @@ declare const iconDict: any;
 declare let rand: number;
 declare let winner: string | null;
 declare let loser: string;
+declare let tie: boolean;
+declare let winnerMove: string | null;
+declare let loserMove: string | null;
+declare let winnerInfo: string;
+declare let computerChoiceInfo: string;
 declare let computerChoice: string;
 declare let results: winnerResults;
 declare const getWinner: (userChoice: string, computerChoice: string) => winnerResults;
