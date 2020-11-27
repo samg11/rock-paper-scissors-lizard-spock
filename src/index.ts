@@ -17,7 +17,8 @@ const spock: HTMLElement | null = document.getElementById('spock')!;
 const computerChoiceDoc: HTMLElement | null = document.getElementById('computerChoice')!;
 const userChoiceDoc: HTMLElement | null = document.getElementById('userChoice')!;
 const winnerDoc: HTMLElement | null = document.getElementById('winner')!;
-const iconDict: HTMLElement[] | null[] = [rock,paper,scissors,lizard,spock]
+const iconDict: HTMLElement[] | null[] = [rock,paper,scissors,lizard,spock];
+let username: string = "user";
 let rand: number;
 let winner: string;
 let loser: string;
@@ -29,6 +30,11 @@ let computerChoiceInfo: string;
 let userChoiceInfo: string;
 let computerChoice: string;
 let results: winnerResults;
+
+// capitalize funciton
+const cap = (str: string): string => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
 
 const getWinner = (userChoice: string, computerChoice: string): winnerResults => {
     winner = "";
@@ -54,36 +60,36 @@ const getWinner = (userChoice: string, computerChoice: string): winnerResults =>
 
         // user wins
         case "rocklizard":
-            winner = "user";break;
+            winner = username;break;
         case "rockscissors":
-            winner = "user";break;
+            winner = username;break;
         case "lizardspock":
-            winner = "user";break;
+            winner = username;break;
         case "lizardpaper":
-            winner = "user";break;
+            winner = username;break;
         case "spockscissors":
-            winner = "user";break;
+            winner = username;break;
         case "spockrock":
-            winner = "user";break;
+            winner = username;break;
         case "scissorspaper":
-            winner = "user";break;
+            winner = username;break;
         case "scissorslizard":
-            winner = "user";break;
+            winner = username;break;
         case "paperspock":
-            winner = "user";break;
+            winner = username;break;
         case "paperrock":
-            winner = "user";
+            winner = username;
             break;
         default:
             winner = "computer";
     }
 
-    if (winner == "user") {
+    if (winner == username) {
         loser = "computer";
         winnerMove = userChoice;
         loserMove = computerChoice;
     } else if (winner == "computer") {
-        loser = "user";
+        loser = username;
         winnerMove = computerChoice;
         loserMove = userChoice;
     } else if (winner == "tie") {
@@ -120,10 +126,10 @@ const handleChoice = (id: string) => {
     if (results.tie) {
         winnerInfo = "It was a tie!";
     } else {
-        winnerInfo = `${results.winner} wins! ${results.winnerMove} beats ${results.loserMove}`;
+        winnerInfo = `${cap(results.winner)+' '} wins! ${' '+cap(results.winnerMove)+' '} beats ${cap(results.loserMove)}`;
     }
 
-    userChoiceInfo =     `You chose ${results.userChoice}`
+    userChoiceInfo =     `${cap(username)+' '} chose ${results.userChoice}`
     computerChoiceInfo = `The computer chose ${results.computerChoice}`;
 
     computerChoiceDoc.innerText = computerChoiceInfo;
