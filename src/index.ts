@@ -15,21 +15,23 @@ const scissors: HTMLElement | null = document.getElementById('scissors')!;
 const lizard: HTMLElement | null = document.getElementById('lizard')!;
 const spock: HTMLElement | null = document.getElementById('spock')!;
 const computerChoiceDoc: HTMLElement | null = document.getElementById('computerChoice')!;
+const userChoiceDoc: HTMLElement | null = document.getElementById('userChoice')!;
 const winnerDoc: HTMLElement | null = document.getElementById('winner')!;
 const iconDict: any = {rock,paper,scissors,lizard,spock}
 let rand: number;
-let winner: string | null;
+let winner: string;
 let loser: string;
 let tie: boolean;
 let winnerMove: string;
 let loserMove: string;
 let winnerInfo: string;
 let computerChoiceInfo: string;
+let userChoiceInfo: string;
 let computerChoice: string;
 let results: winnerResults;
 
 const getWinner = (userChoice: string, computerChoice: string): winnerResults => {
-    winner = null;
+    winner = "";
     tie = false;
     winnerMove = "";
     loserMove = "";
@@ -86,8 +88,6 @@ const getWinner = (userChoice: string, computerChoice: string): winnerResults =>
     } else {
         loser = "tie";
         tie = true;
-        //winnerMove = null;
-        //loserMove = null;
     }
 
     return {userChoice, computerChoice, winner, loser, tie, winnerMove, loserMove}
@@ -122,9 +122,11 @@ const handleChoice = (id: string) => {
         winnerInfo = `${results.winner} wins! ${results.winnerMove} beats ${results.loserMove}`;
     }
 
+    userChoiceInfo =     `You chose ${results.userChoice}`
     computerChoiceInfo = `The computer chose ${results.computerChoice}`;
 
     computerChoiceDoc.innerText = computerChoiceInfo;
+    userChoiceDoc.innerText = userChoiceInfo;
     winnerDoc.innerText = winnerInfo;
 }
 
