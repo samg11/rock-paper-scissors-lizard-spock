@@ -4,8 +4,8 @@ interface winnerResults {
     winner: string;
     loser: string;
     tie: boolean;
-    winnerMove: string | null;
-    loserMove: string | null;
+    winnerMove: string;
+    loserMove: string;
 }
 declare const icons: any;
 declare const rock: HTMLElement | null;
@@ -20,8 +20,8 @@ declare let rand: number;
 declare let winner: string | null;
 declare let loser: string;
 declare let tie: boolean;
-declare let winnerMove: string | null;
-declare let loserMove: string | null;
+declare let winnerMove: string;
+declare let loserMove: string;
 declare let winnerInfo: string;
 declare let computerChoiceInfo: string;
 declare let computerChoice: string;
