@@ -1,7 +1,8 @@
 interface winnerResults {
     userChoice: string,
     computerChoice: string,
-    winner: string
+    winner: string,
+    loser: string
 }
 
 const icons: any = document.querySelectorAll(".icon");
@@ -15,6 +16,7 @@ const winnerDoc: HTMLElement | null = document.getElementById('winner')!;
 const iconDict: any = {rock,paper,scissors,lizard,spock}
 let rand: number;
 let winner: string | null;
+let loser: string;
 let computerChoice: string;
 let results: winnerResults;
 
@@ -90,7 +92,11 @@ const getWinner = (userChoice: string, computerChoice: string): winnerResults =>
             winner = "computer";
     }
 
-    return {userChoice, computerChoice, winner}
+    if      (winner == "user")     loser = "computer";
+    else if (winner == "computer") loser = "user";
+    else                           loser = "tie";
+
+    return {userChoice, computerChoice, winner, loser}
 }
 
 const chooseComputerMove = (): string => {
