@@ -24,6 +24,7 @@ let tie: boolean;
 let winnerMove: string | null;
 let loserMove: string | null;
 let winnerInfo: string;
+let computerChoiceInfo: string;
 let computerChoice: string;
 let results: winnerResults;
 
@@ -148,11 +149,13 @@ const handleChoice = (id: string) => {
     if (results.tie) {
         winnerInfo = "It was a tie!";
     } else {
-        winnerInfo = `${results.winner} wins! `
+        winnerInfo = `${results.winner} wins! ${results.winnerMove} beats ${results.loserMove}`;
     }
 
-    computerChoiceDoc.innerText = results.computerChoice;
-    winnerDoc.innerText = results.winner;
+    computerChoiceInfo = `The computer chose ${results.computerChoice}`;
+
+    computerChoiceDoc.innerText = computerChoiceInfo;
+    winnerDoc.innerText = winnerInfo;
 }
 
 for (let icon in icons) {
