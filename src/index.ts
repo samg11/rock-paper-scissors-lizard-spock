@@ -4,8 +4,8 @@ interface winnerResults {
     winner: string,
     loser: string,
     tie: boolean,
-    winnerMove: string,
-    loserMove: string
+    winnerMove: string | null,
+    loserMove: string | null
 }
 
 const icons: any = document.querySelectorAll(".icon");
@@ -21,8 +21,8 @@ let rand: number;
 let winner: string | null;
 let loser: string;
 let tie: boolean;
-let winnerMove: string;
-let loserMove: string;
+let winnerMove: string | null;
+let loserMove: string | null;
 let winnerInfo: string;
 let computerChoice: string;
 let results: winnerResults;
@@ -111,9 +111,11 @@ const getWinner = (userChoice: string, computerChoice: string): winnerResults =>
     } else {
         loser = "tie";
         tie = true;
+        winnerMove = null;
+        loserMove = null;
     }
 
-    return {userChoice, computerChoice, winner, loser, tie}
+    return {userChoice, computerChoice, winner, loser, tie, winnerMove, loserMove}
 }
 
 const chooseComputerMove = (): string => {
