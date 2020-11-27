@@ -124,9 +124,9 @@ const handleChoice = (id: string) => {
     //console.log(results);
 
     if (results.tie) {
-        winnerInfo = "It was a tie!";
+        winnerInfo = "Tie!";
     } else {
-        winnerInfo = `${cap(results.winner)+' '} wins! ${' '+cap(results.winnerMove)+' '} beats ${cap(results.loserMove)}`;
+        winnerInfo = `${cap(results.winner)+' '} wins! ${'\n'+cap(results.winnerMove)+' '} beats ${cap(results.loserMove)}`;
     }
 
     userChoiceInfo =     `${cap(username)+' '} chose ${results.userChoice}`

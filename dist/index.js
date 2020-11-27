@@ -3,7 +3,7 @@ if(winner==username){loser="computer";winnerMove=userChoice;loserMove=computerCh
 else if(winner=="computer"){loser=username;winnerMove=computerChoice;loserMove=userChoice;}
 else if(winner=="tie"){loser="tie";tie=true;}
 return{userChoice,computerChoice,winner,loser,tie,winnerMove,loserMove};};const chooseComputerMove=()=>{rand=Math.floor(Math.random()*5);switch(rand){case 0:return"rock";case 1:return"paper";case 2:return"scissors";case 3:return"lizard";case 4:return"spock";}
-return"error";};const handleChoice=(id)=>{computerChoice=chooseComputerMove();results=getWinner(id,computerChoice);if(results.tie){winnerInfo="It was a tie!";}
-else{winnerInfo=`${cap(results.winner)+' '}wins!${' '+cap(results.winnerMove)+' '}beats ${cap(results.loserMove)}`;}
+return"error";};const handleChoice=(id)=>{computerChoice=chooseComputerMove();results=getWinner(id,computerChoice);if(results.tie){winnerInfo="Tie!";}
+else{winnerInfo=`${cap(results.winner)+' '}wins!${'\n'+cap(results.winnerMove)+' '}beats ${cap(results.loserMove)}`;}
 userChoiceInfo=`${cap(username)+' '}chose ${results.userChoice}`;computerChoiceInfo=`The computer chose ${results.computerChoice}`;computerChoiceDoc.innerText=computerChoiceInfo;userChoiceDoc.innerText=userChoiceInfo;winnerDoc.innerText=winnerInfo;};for(let icon in iconDict){icons[icon].addEventListener("click",(e)=>{console.table([e.path[0].id,e.path[1].id]);if(e.path[1].id==""){handleChoice(e.path[0].id);}
 else{handleChoice(e.path[1].id);}});}
