@@ -37,66 +37,38 @@ const getWinner = (userChoice: string, computerChoice: string): winnerResults =>
     switch (userChoice + computerChoice) {
         // ties
         case "rockrock":
-            winner = "tie";
-            break;
-
+            winner = "tie";break;
         case "paperpaper":
-            winner = "tie";
-            break;
-
+            winner = "tie";break;
         case "scissorsscissors":
-            winner = "tie";
-            break;
-
+            winner = "tie";break;
         case "lizardlizard":
             winner = "tie";
             break;
-
         case "spockspock":
-            winner = "tie";
-            break;
+            winner = "tie";break;
 
         // user wins
         case "rocklizard":
-            winner = "user";
-            break;
-            
+            winner = "user";break;
         case "rockscissors":
-            winner = "user";
-            break;
-
+            winner = "user";break;
         case "lizardspock":
-            winner = "user";
-            break;
-
+            winner = "user";break;
         case "lizardpaper":
-            winner = "user";
-            break;
-
+            winner = "user";break;
         case "spockscissors":
-            winner = "user";
-            break;
-
+            winner = "user";break;
         case "spockrock":
-            winner = "user";
-            break;
-
+            winner = "user";break;
         case "scissorspaper":
-            winner = "user";
-            break;
-
+            winner = "user";break;
         case "scissorslizard":
-            winner = "user";
-            break;
-
+            winner = "user";break;
         case "paperspock":
-            winner = "user";
-            break;
-
+            winner = "user";break;
         case "paperrock":
-            winner = "user";
-            break;
-
+            winner = "user";break;
         default:
             winner = "computer";
     }
@@ -125,16 +97,12 @@ const chooseComputerMove = (): string => {
     switch (rand) {
         case 0:
             return "rock";
-        
         case 1:
             return "paper";
-        
         case 2:
             return "scissors";
-
         case 3:
             return "lizard";
-
         case 4:
             return "spock";
     }
