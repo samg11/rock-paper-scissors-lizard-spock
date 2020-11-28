@@ -41,7 +41,6 @@ const getWinner = (userChoice: string, computerChoice: string): winnerResults =>
     tie = false;
     winnerMove = "";
     loserMove = "";
-    console.log({userChoice, computerChoice});
 
     switch (userChoice + computerChoice) {
         // ties
@@ -121,7 +120,6 @@ const chooseComputerMove = (): string => {
 const handleChoice = (id: string) => {
     computerChoice = chooseComputerMove();
     results = getWinner(id, computerChoice);
-    //console.log(results);
 
     if (results.tie) {
         winnerInfo = "Tie!";
@@ -139,7 +137,6 @@ const handleChoice = (id: string) => {
 
 for (let icon in iconDict) {
     icons[icon].addEventListener("click", (e: any) => {
-        console.table([e.path[0].id, e.path[1].id])
         if (e.path[1].id == "") {
             handleChoice(e.path[0].id);
         } else {

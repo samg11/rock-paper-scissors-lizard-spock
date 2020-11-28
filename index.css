@@ -2,6 +2,35 @@ header {
     text-align: center;
 }
 
+#gameData {
+    text-align: center;
+}
+
 .icons {
     text-align: center;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+@media screen and (max-width: 900px) {
+    #rules {
+      display: none;
+    }
+  }
+
+#rules {
+    width: 45%;
+}
+
+#rules > ul{
+    list-style-type: disc;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    columns: 2;
+    list-style-position: inside;
 }
